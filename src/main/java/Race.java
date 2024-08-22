@@ -1,29 +1,25 @@
 public class Race {
-    private final Car[] cars=new Car[3];
+    private final Car car;
+    private String leader="";
+    private int distance=0;
 
-    public Race(Car car1, Car car2, Car car3) {
-        cars[0] = car1;
-        cars[1] = car2;
-        cars[2] = car3;
+    public Race() {
+        car=new Car("", 0);
+    }
+    public Race(Car car) {
+        this.car = car;
     }
 
-
-    public int getDistance (Car car) {
-
-        return car.getSpeed()*24;
-    }
 
     public void bestCar () {
-        Car max = cars[0];
+        leader = car.getName();
+        distance=car.getSpeed()*24;
 
-        if (cars[0].getSpeed() > cars[1].getSpeed()) {
-            max = cars[0];
+        if (distance < car.getSpeed()*24) {
+            distance = car.getSpeed()*24;
+            leader = car.getName();
         }
-        if (cars[2].getSpeed() > max.getSpeed()) {
-            max = cars[2];
-        }
-
-        System.out.println("Самая быстрая машина: " + max.getName());
+        System.out.println("Самая быстрая машина: " + leader);
     }
 
 }

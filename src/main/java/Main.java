@@ -6,7 +6,7 @@ public class Main {
 
         Scanner scanner = new Scanner(System.in);
 
-        Car[] cars = new Car[3];
+        Race race=new Race();
 
         for (int i = 0; i < 3; i++) {
             System.out.print("Введите название машины №"+(i+1));
@@ -20,10 +20,9 @@ public class Main {
             }
 
 
-            cars[i] = new Car(carName, carSpeed);
+            race=new Race(new Car(carName, carSpeed));
         }
 
-        Race race=new Race(cars[0], cars[1], cars[2]);
 
         race.bestCar();
     }
